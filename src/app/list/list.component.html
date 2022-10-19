@@ -1,0 +1,73 @@
+<!-- 
+
+ <form (submit)="onSubmit(list.value)">
+    <input #list >
+    <button (click)="onSubmit(list.value)">Submit</button>
+ </form>
+<h2>The list of items</h2>
+ <ol >
+    <li>Item1</li>
+    <li>Item2</li>
+    <li>Item3</li>
+    
+    
+ </ol> -->
+<div >
+<form style="text-align: center;" class="container"  [formGroup]="form" (ngSubmit)="onSubmit()" >
+   <div >
+      <div>
+         <label><b>Username</b></label>
+         <input type="text" name="name" placeholder="name" formControlName="name" ><br />
+
+      </div>
+      <div>
+         <label><b>Company</b></label>
+          <input type="text" name="company" placeholder="company" formControlName="company"><br />
+
+      </div>
+      <div>
+         <label><b>State   </b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <input type="text" name="state" placeholder="state" formControlName="state"><br />
+
+      </div>
+      <div>
+         <label><b>Country</b></label>&nbsp;&nbsp;
+         <input type="text" name="country" placeholder="country" formControlName="country"><br />
+
+      </div>
+      <button type="submit">Submit</button>
+   </div>
+</form>
+<div class="tab">
+   <table  >
+      <thead>
+         
+         <tr>
+            <th>Name</th>
+            
+            <th>Company</th>
+           
+            <th>State</th>
+           
+            <th>Country</th>
+            <th>Action</th>
+         </tr>
+      </thead>
+      <tbody>
+
+         <tr *ngFor=" let item of listData">
+            <td><span>{{item.name}}</span></td>
+            
+            <td><span>{{item.company}}</span></td>
+      
+            <td><span>{{item.state}}</span></td>
+          
+            <td><span>{{item.country}}</span></td>
+            <td><button type="button" (click)="removeItem(item)">Delete</button></td>
+         </tr>
+         
+      </tbody>
+   </table>
+</div>
+</div>
+ 
