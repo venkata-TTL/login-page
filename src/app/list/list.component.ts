@@ -1,3 +1,4 @@
+import { emitDistinctChangesOnlyDefaultValue } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,FormBuilder} from '@angular/forms'
 @Component({
@@ -8,7 +9,7 @@ import {FormGroup,FormControl,FormBuilder} from '@angular/forms'
 export class ListComponent implements OnInit {
   form: FormGroup;
   listData:any;
-
+  isEdit =false;
   constructor() { }
 
   ngOnInit(): void {
@@ -34,5 +35,20 @@ export class ListComponent implements OnInit {
       
     });
   }
+
+  onEdit(user : any){
+    
+    debugger;
+    this.listData.forEach(element => {
+      element.isEdit = false
+    })
+    user.isEdit = true;
+    this.form.reset();
+    console.log(this.listData)
+    
+  };
+  
+  
+  
 }
 

@@ -56,14 +56,47 @@
       <tbody>
 
          <tr *ngFor=" let item of listData">
-            <td><span>{{item.name}}</span></td>
+            <td>
+            <div *ngIf="item.isEdit">
+               <input type="text" [(ngModel)]= "item.name" class="form-control">
+            </div>
+            <div *ngIf="!item.isEdit">
+               {{item.name}}
+
+            </div>
+            </td>
             
-            <td><span>{{item.company}}</span></td>
+            <td>
+               <div *ngIf="item.isEdit">
+                  <input type="text" [(ngModel)]="item.company" size="100%" class="form-control">
+               </div>
+               <div *ngIf="!item.isEdit">
+                  {{item.company}}
+               </div>
+            </td>
       
-            <td><span>{{item.state}}</span></td>
+            <td>
+               <div *ngIf="item.isEdit">
+                  <input type="text" [(ngModel)]="item.state" class="form-control">
+               </div>
+               <div *ngIf="!item.isEdit">
+                  {{item.state}}
+               </div>
+            </td>
           
-            <td><span>{{item.country}}</span></td>
-            <td><button type="button" (click)="removeItem(item)">Delete</button></td>
+            <td>
+               <div *ngIf="item.isEdit">
+                  <input type="text" [(ngModel)]="item.country" class="form-control">
+               </div>
+               <div *ngIf="!item.isEdit">
+                  {{item.country}}
+               </div>
+            </td>
+            <td><button type="button" (click)="removeItem(item)">Delete</button>
+               
+                  <button type="button" (click)="onEdit(item)"  >edit</button>
+            
+               </td>
          </tr>
          
       </tbody>
